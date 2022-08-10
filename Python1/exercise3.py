@@ -1,3 +1,5 @@
+# Summation of each digit program
+
 print(" *** Summation of each digit ***")
 num = int(input("Enter a positive number : "))
 sum = 0

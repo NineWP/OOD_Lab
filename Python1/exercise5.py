@@ -1,3 +1,5 @@
+# yin yang pattern program
+
 num = int(input("Enter Input : "))
 side_length = (num+2)*2
 half_of_sidelength = side_length//2

@@ -1,3 +1,5 @@
+# return the odd number in list
+
 def odd_list(alist):
     return [int(e) for e in alist if e%2!=0]
 

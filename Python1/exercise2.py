@@ -1,3 +1,5 @@
+# classification the wind speed 
+
 print(" *** Wind classification ***")
 wind_speed = float(input("Enter wind speed (km/h) : "))
 classific = ''

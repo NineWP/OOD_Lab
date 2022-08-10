@@ -1,5 +1,4 @@
-from posixpath import split
-
+# enter hh mm ss and convert to seconds
 
 print("*** Converting hh.mm.ss to seconds ***")
 time_input = input("Enter hh mm ss : ")
