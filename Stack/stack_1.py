@@ -1,3 +1,5 @@
+# รุ้จักกับ Stack
+
 class Stack :
     # Initializing an empty stack.
 

@@ -1,3 +1,5 @@
+# number in Stack
+
 class Stack :
     def __init__(self, list = None) :
         if list == None:
