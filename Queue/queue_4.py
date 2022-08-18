@@ -47,10 +47,6 @@ def addToMainQ(id) :
                 elif member_list[i][0] != mainq.items[j][0] and j + 1 == mainq.size():
                     mainq.enQueue(member_list[i])
             
-               
-                
-            
-
 
 command = Queue()
 mainq = Queue()
