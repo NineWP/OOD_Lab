@@ -39,12 +39,16 @@ def addToMainQ(id) :
                 mainq.enQueue(member_list[i])
                 break
             for j in range(mainq.size()) :
-                if member_list[i][0] < mainq.items[j][0] :
-                    mainq.items.insert(j, member_list[i])
-                elif member_list[i][0] == mainq.items[j][0] and j + 1 == mainq.size():
+                if member_list[i][0] == mainq.items[j][0] and j + 1 == mainq.size():
                     mainq.enQueue(member_list[i])
-                elif member_list[i][0] > mainq.items[j][0] :
+                elif member_list[i][0] == mainq.items[j][0] and member_list[i][0] != mainq.items[j+1][0] and j + 1 != mainq.size():
+                    mainq.items.insert(j+1, member_list[i])
+                    break
+                elif member_list[i][0] != mainq.items[j][0] and j + 1 == mainq.size():
                     mainq.enQueue(member_list[i])
+            
+               
+                
             
 
 
