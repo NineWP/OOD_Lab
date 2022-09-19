@@ -28,14 +28,37 @@ def move(n,from_rod, to_rod, aux_rod):
     change_pos(from_rod, to_rod)
     move(n-1, aux_rod, to_rod, from_rod)
 
-def Display(n, lstA, lstB, lstC) :
-    temp = [[i for i in lstA.items],[i for i in lstB.items],[i for i in lstC.items]]
-    for i in range(len(temp)) :
-        for j in range(n+1) :
-            if len(temp[i]) != n+1 : 
-                temp[i].append("|")
-    for i in reversed(range(n+1)) :
-        print(temp[0][i], "", temp[1][i], "", temp[2][i])
+def Display(i, lstA, lstB, lstC) :
+    a = lstA.items
+    b = lstB.items
+    c = lstC.items
+    # print(a,b,c)
+    if i == -1 :
+        return 
+    if i < len(a):
+        print(a[i], end="  ")
+    else:
+        print("|", end="  ")
+    if i < len(b):
+        print(b[i], end="  ")
+    else:
+        print("|", end="  ")
+    if i < len(c):
+        print(c[i])
+    else:
+        print("|")
+
+    Display(i-1, listA, listB, listC)
+
+
+# def Display(n, lstA, lstB, lstC) :
+#     temp = [[i for i in lstA.items],[i for i in lstB.items],[i for i in lstC.items]]
+#     for i in range(len(temp)) :
+#         for j in range(n+1) :
+#             if len(temp[i]) != n+1 : 
+#                 temp[i].append("|")
+#     for i in reversed(range(n+1)) :
+#         print(temp[0][i], "", temp[1][i], "", temp[2][i])
 
 def change_pos(form, des) :
     if form == 'A' : form = listA
@@ -47,7 +70,13 @@ def change_pos(form, des) :
     des.push(form.pop())
     Display(n, listA, listB, listC)
 
-
+def initial_rod(n) :
+    if n == 1:
+        listA.push(n)
+        return 0
+    else :
+        listA.push(n)
+        initial_rod(n-1)
 
 listA = Stack()
 listB = Stack()
@@ -55,8 +84,7 @@ listC = Stack()
 
 n = int(input("Enter Input : "))
 
-for i in reversed(range(n+1)) : # initial rod
-    if i != 0 : listA.push(i) 
+initial_rod(n)
 
 Display(n, listA, listB, listC)
 move(n, 'A', 'C', 'B');

@@ -1,12 +1,10 @@
-# import os
-# os.system('ls ./student_data -al')
+# Read the input
+n = int(input())
 
-
-ch = 'M'
- 
-# Using chr()+ord()
-# prints P
-x = chr(ord(ch) + 3)
- 
-print ("The incremented character value is : ",end="")
-print ((ord('a') + 3))
+def rec(n):
+    if n==0:
+        print(0)
+    else:
+        print(-n)
+        rec(n-1)
+rec(n)
