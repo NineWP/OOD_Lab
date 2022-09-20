@@ -50,16 +50,6 @@ def Display(i, lstA, lstB, lstC) :
 
     Display(i-1, listA, listB, listC)
 
-
-# def Display(n, lstA, lstB, lstC) :
-#     temp = [[i for i in lstA.items],[i for i in lstB.items],[i for i in lstC.items]]
-#     for i in range(len(temp)) :
-#         for j in range(n+1) :
-#             if len(temp[i]) != n+1 : 
-#                 temp[i].append("|")
-#     for i in reversed(range(n+1)) :
-#         print(temp[0][i], "", temp[1][i], "", temp[2][i])
-
 def change_pos(form, des) :
     if form == 'A' : form = listA
     if form == 'B' : form = listB
