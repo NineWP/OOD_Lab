@@ -83,46 +83,43 @@ class BST:
                     parent.right = child
         return r
                 
-def printTree90(node, level = 0):
-    if node != None:
-        printTree90(node.right, level + 1)
-        print('     ' * level, node)
-        printTree90(node.left, level + 1)
-
-def left_height(node):
-    ht = 0
-    while(node):
-        ht += 1
-        node = node.left
-          
-    return ht
-  
-def right_height(node):
-    ht = 0
-    while(node):
-        ht += 1
-        node = node.right
-          
-    return ht
-
-def TotalNodes(root):
-    
-    if(root == None):
-        return 0
-        
-    lh = left_height(root)
-    rh = right_height(root)
-      
-    if(lh == rh):
-        return (1 << lh) - 1
-        
-    return 1 + TotalNodes(root.left) + TotalNodes(root.right)
+    def printTree90(self, node, level = 0):
+        if node != None:
+            self.printTree90(node.right, level + 1)
+            print('     ' * level, node)
+            self.printTree90(node.left, level + 1)
 
 
+def findRank(node, value):
+    global rank
+    global ans
+    global found
+    if node == None:
+        return
+    findRank(node.left, value)
+    rank += 1
+    if node.data == value:
+        if not found:
+            ans = rank - 1
+            return
+    elif node.data > value:
+        if not found:
+            found = True
+            ans = rank - 1
+            return
+    findRank(node.right, value)
+    if not found:
+        ans = rank
+
+inp, val = input('Enter Input : ').split('/')
+inpLis = [int(e) for e in inp.split()]
+ans = 0
+rank = 0
+found = False
 T = BST()
-inp = [int(i) for i in input('Enter Input : ').replace(' ', '/').split('/')]
-for i in inp[:-1]:
-    T.insert(i)
-printTree90(T.root)
+for data in inpLis:
+    T.insert(data)
+T.printTree90(T.root)
+findRank(T.root, int(val))
 print('--------------------------------------------------')
-print(TotalNodes(T.root))
+print('Rank of {0} : '.format(val) + str(ans))
